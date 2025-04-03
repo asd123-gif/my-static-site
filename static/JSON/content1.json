@@ -1,0 +1,29 @@
+{
+    "title": "The Future of AI",
+    "content": [
+        {
+            "type": "text",
+            "value": "Artificial Intelligence is evolving rapidly and transforming industries..."
+        },
+        {
+            "type": "image",
+            "value": "static/images/badam.jpg"
+        },
+        {
+            "type": "text",
+            "value": "AI is being used in healthcare, finance, and many other fields."
+        },
+        {
+            "type": "video",
+            "value": "static/videos/ai_future.mp4"
+        },
+        {
+            "type": "image",
+            "value": "static/images/robot.jpg"
+        },
+        {
+            "type": "text",
+            "value": "Machine learning is one of the key techniques in AI."
+        }
+    ]
+}

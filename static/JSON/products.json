@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "title": "Cumin",
+        "description": "...",
+        "price": "",
+        "image": "static/images/cumin.png"
+    },
+    {
+        "id": 2,
+        "title": "Barberry",
+        "description": "...",
+        "price": "",
+        "image": "static/images/barberry.png"
+    },
+    {
+        "id": 3,
+        "title": "Hing",
+        "description": "...",
+        "price": "",
+        "image": "static/images/hing.png"
+    }
+]

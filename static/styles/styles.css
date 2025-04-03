@@ -1,0 +1,798 @@
+/* Smooth page load animation */
+:root {
+    --main-bg-color: #f8f8f8;
+    --header-bg-color: #2e7d64;
+    --hover-color: rgba(255, 255, 255, 0.2);
+    --focus-outline-color: #66bb97;
+    --button-bg-color: #2e7d70;
+    --button-hover-color: #1b5e5a;
+    --text-color: #333;
+    --white: #fff;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--main-bg-color);
+    color: var(--text-color);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.5s ease-out forwards;
+    will-change: opacity, transform;
+}
+
+html, body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+}
+
+/* نوار ناوبری */
+header {
+    background-color: var(--header-bg-color);
+    color: var(--white);
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    animation: slideDown 0.8s ease-out;
+    position: relative; /* برای موقعیت‌دهی بهتر */
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    margin-right: auto; /* فاصله بین لوگو و منو */
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--white);
+    padding: 10px;
+}
+
+nav {
+    flex: 1; /* nav فضای باقی‌مانده را پر می‌کند */
+    display: flex;
+    justify-content: center; /* منو را وسط‌چین می‌کند */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 15px;
+}
+
+nav ul li a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background 0.3s, transform 0.2s;
+}
+
+
+/* Search bar */
+.search-container {
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 5px;
+    padding: 5px 10px;
+    border: 2px solid #2e7d60;
+    margin-right: 20px;
+}
+
+.search-container input {
+    border: none;
+    outline: none;
+    padding: 5px;
+    font-size: 16px;
+    width: 150px;
+}
+
+.search-container i {
+    color: #2e7d72;
+    margin-left: 8px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* Hero section */
+.hero {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #a5d6c9;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeIn 1.5s ease-out forwards 0.5s;
+}
+
+/* Contact form */
+.contact {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.contact form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact input {
+    width: 100%;
+    max-width: 350px;
+    padding: 12px;
+    border-radius: 8px;
+    border: 2px solid #2e7d76;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s;
+}
+
+.contact input:focus {
+    border-color: #66bb9a;
+    box-shadow: 0 0 10px rgba(102, 187, 154, 0.5);
+}
+
+.contact button {
+    background-color: #2e7d70;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.contact button:hover {
+    background-color: #1b5e5a;
+    transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #2e7d64;
+    color: white;
+    width: 100%;
+    position: relative;
+    margin-top: auto;
+    animation: slideUp 0.8s ease-out;
+}
+
+/* Full height layout */
+html, body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        background: rgba(46, 125, 110, 0.95);
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        padding: 10px 0;
+        text-align: center;
+        z-index: 1000;
+    }
+
+    .menu-active nav ul {
+        display: flex;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+
+    .contact button {
+        width: 100%;
+    }
+}
+
+.menu-active {
+    display: flex !important; /* مطمئن شو که منو نمایش داده می‌شه */
+    flex-direction: column;
+}
+
+
+/* Fix logo link styling */
+.no-style {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.no-style:hover,
+.no-style:focus,
+.no-style:active {
+    text-decoration: none;
+    color: inherit;
+}
+.menu-toggle {
+    display: none; /* در حالت دسکتاپ مخفی باشه */
+}
+
+/* وقتی صفحه کوچکتر از 768px شد، سه‌خطی نمایش داده بشه */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    nav ul {
+        display: none; /* در موبایل، منو پیش‌فرض مخفی باشه */
+        flex-direction: column;
+        background: #2e7d6e;
+        position: absolute;
+        top: 60px;
+        width: 100%;
+        left: 0;
+        padding: 10px 0;
+        text-align: center;
+    }
+
+    .menu-active {
+        display: flex !important; /* وقتی روی دکمه همبرگری کلیک شد، نمایش داده بشه */
+    }
+}
+@media (max-width: 768px) {
+    nav ul {
+        display: none;
+        flex-direction: column;
+        background: #2e7d6e;
+        position: fixed; /* باعث می‌شه روی کل صفحه قرار بگیره */
+        top: 60px;
+        left: 0;
+        width: 100%;
+        padding: 10px 0;
+        text-align: center;
+        z-index: 1000; /* بالاتر از بقیه عناصر */
+        background: rgba(46, 125, 110, 0.95); /* پس‌زمینه نیمه‌شفاف */
+    }
+
+    .menu-active {
+        display: flex !important;
+    }
+
+    /* وقتی منو باز می‌شه، محتوا کمی پایین بیاد */
+    .menu-active + main {
+        margin-top: 200px; /* مقدار رو می‌تونی تنظیم کنی */
+    }
+}
+.push-down {
+    margin-top: 200px; /* باعث می‌شه محتوا کمی پایین‌تر بیاد */
+}
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+        position: absolute;
+        top: 15px; /* همیشه در بالا بمونه */
+        right: 15px;
+        z-index: 1100; /* بالاتر از منو */
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    /* وقتی منو باز شد، دکمه‌ی سه‌خطی کم‌رنگ بشه */
+    .menu-active ~ .menu-toggle {
+        opacity: 0.5; /* 50٪ کم‌رنگ‌تر */
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        background: #2e7d6e;
+        position: fixed;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        padding: 10px 0;
+        text-align: center;
+        z-index: 1000;
+        background: rgba(46, 125, 110, 0.95);
+    }
+
+    .menu-active {
+        display: flex !important;
+    }
+}
+h1.logo {
+    margin: 0; /* حذف فاصله اضافی */
+    padding: 0; /* حذف فضای داخلی اضافی */
+    font-size: 24px; /* اندازه مناسب برای هماهنگی با نوار */
+    font-weight: bold;
+    line-height: 1; /* جلوگیری از افزایش ارتفاع */
+}
+header {
+    background-color: #2e7d64;
+    color: white;
+
+    display: flex;
+    align-items: center; /* تراز عمودی عناصر */
+    justify-content: space-between;
+    height: auto;
+}
+
+/* تنظیم DOM */
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+
+/* تنظیم سه‌خطی */
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+    padding: 10px;
+    margin-left: auto; /* ارسال سه‌خطی به سمت راست */
+    margin-top: -12px; /* بالا آوردن سه‌خطی */
+}
+
+/* نمایش منوی همبرگری در موبایل */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+        align-items: center; /* اطمینان از هم‌ترازی */
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        background: #2e7d6e;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        padding: 10px 0;
+        text-align: center;
+        z-index: 1000;
+        background: rgba(46, 125, 110, 0.95);
+    }
+
+    .menu-active {
+        display: flex !important;
+    }
+}
+.email-container {
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 10px;
+    padding: 10px;
+    border: 2px solid #2e7d76;
+    max-width: 350px;
+    margin: auto;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.email-container i {
+    color: #2e7d76;
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+.email-container input {
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-size: 16px;
+    flex: 1;
+}
+
+/* افکت هنگام فوکوس */
+.email-container:focus-within {
+    border-color: #66bb9a;
+    box-shadow: 0 0 10px rgba(102, 187, 154, 0.5);
+}
+
+/* افکت وقتی مقدار نامعتبر است */
+.email-container input:invalid {
+    border-color: #ff4d4d;
+    color: #ff4d4d;
+}
+
+/* افکت وقتی مقدار معتبر است */
+.email-container input:valid {
+    border-color: #66bbaa;
+    color: #2e7d76;
+}
+.submit-btn {
+    background: linear-gradient(135deg, #2e7d76, #1b5e5a);
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    width: 100%;
+    max-width: 350px;
+    display: block;
+    margin: 15px auto;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* افکت هاور (موس روی دکمه بره) */
+.submit-btn:hover {
+    background: linear-gradient(135deg, #1b5e5a, #2e7d76);
+    transform: scale(1.05);
+}
+
+/* افکت کلیک */
+.submit-btn:active {
+    transform: scale(0.95);
+}
+
+/* افکت وقتی دکمه غیرفعال است */
+.submit-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+}
+.center-text {
+    display: flex;
+    justify-content: center;  /* وسط‌چین کردن افقی */
+    align-items: center;  /* وسط‌چین کردن عمودی */
+    text-align: center;  /* وسط‌چین کردن متن */
+    height: 20vh;  /* ارتفاع مناسب برای وسط قرار گرفتن */
+}
+.center-text1 {
+    display: flex;
+    justify-content: center;  /* وسط‌چین کردن افقی */
+    align-items: center;  /* وسط‌چین کردن عمودی */
+    text-align: center;  /* وسط‌چین کردن متن */
+    height: 10vh;  /* ارتفاع مناسب برای وسط قرار گرفتن */
+}
+.email-box {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #2e7d76, #1b5e5a);
+    padding: 15px 20px;
+    border-radius: 10px;
+    max-width: 400px;
+    margin: 20px auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.email-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.email-box i {
+    font-size: 22px;
+    color: white;
+    margin-right: 15px;
+}
+
+.email-box a {
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.email-box a:hover {
+    color: #a5d6a7;
+}
+.contact-container {
+    display: flex;
+    justify-content: center; /* وسط‌چین کردن در صفحه */
+    gap: 40px; /* فاصله بین دو بخش */
+    align-items: flex-start; /* تراز کردن از بالا */
+    flex-wrap: wrap; /* در موبایل زیر هم قرار بگیرد */
+    margin: 50px auto;
+    max-width: 900px;
+}
+
+.contact-section {
+    flex: 1;
+    min-width: 300px; /* حداقل عرض هر بخش */
+    text-align: center;
+}
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* فاصله بین دایره‌ها */
+    margin-top: 20px;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px; /* اندازه دایره */
+    height: 60px;
+    border-radius: 50%;
+    background-size: cover; /* تصویر کاملاً داخل دایره قرار بگیره */
+    background-position: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* افکت هاور */
+.social-links a:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* تصویر پس‌زمینه برای هر شبکه اجتماعی */
+.youtube {
+    background-image: url("../images/youtube.png");
+}
+
+.linkedin {
+    background-image: url("../images/linkedin.png");
+}
+
+.whatsapp {
+    background-image: url("../images/whatsapp.png"); /* مسیر تصویر واتساپ */
+}
+
+.products-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+  
+.product {
+    width: 250px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.product img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.product:hover {
+    transform: scale(1.05);
+}
+
+.hero {
+    text-align: center;
+    padding: 100px 20px; /* افزایش padding برای فضای بهتر */
+    background-image: url('../images/backword.jpg'); /* مسیر تصویر */
+    background-size: cover; /* تصویر کل بخش را پوشش دهد */
+    background-position: center; /* تصویر در مرکز قرار بگیرد */
+    color: var(--white); /* رنگ متن سفید برای خوانایی بهتر */
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeIn 1.5s ease-out forwards 0.5s;
+    position: relative; /* برای overlay */
+}
+
+/* Overlay برای بهبود خوانایی متن */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* رنگ سیاه با شفافیت 50% */
+    z-index: 1;
+}
+
+.hero h1, .hero p {
+    position: relative; /* متن بالای overlay قرار بگیرد */
+    z-index: 2;
+}
+
+.hero h1 {
+    margin: 0;
+    font-size: 3rem; /* اندازه بزرگ‌تر برای عنوان */
+}
+
+.hero p {
+    font-size: 1.5rem; /* اندازه مناسب برای متن */
+    margin-top: 10px;
+}
+main h2 {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 2rem;
+}
+
+main ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+main ul li {
+    font-size: 1.1rem;
+    margin: 10px 0;
+} 
+  
+  /* استایل برای لیست مقالات در صفحه blog.html */
+#blog-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+  
+.blog-post {
+    width: 250px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    text-align: center;
+}
+  
+.blog-post img {
+    width: 100%;
+    height: 250px; /* ارتفاع ثابت برای همه‌ی تصاویر */
+    object-fit: cover; /* باعث می‌شود تصویر متناسب و بدون کشیدگی نمایش داده شود */
+    border-bottom: 1px solid #ddd;
+}
+
+  
+.blog-post h3 {
+    font-size: 18px;
+    color: #333;
+    padding: 10px;
+}
+  
+.blog-post a {
+    text-decoration: none;
+    color: inherit;
+}
+  
+.blog-post:hover {
+    transform: scale(1.05);
+}
+
+.blog-card img {
+    width: 100%; /* باعث می‌شود تصویر تمام عرض کارت را بگیرد */
+    height: 200px; /* ارتفاع یکسان برای همه تصاویر */
+    object-fit: cover; /* برش تصویر برای تناسب با اندازه */
+    border-top-left-radius: 10px; 
+    border-top-right-radius: 10px;
+}
+  
+  /* استایل برای صفحه article در blog-post.html */
+#article-content {
+    max-width: 1000px; /* عرض بیشتر برای کادر */
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+}
+  
+#article-title {
+    font-size: 28px;
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+  
+#article-content img {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 20px;
+}
+  
+#article-content video {
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+}
+  
+button {
+    display: block;
+    margin: 0px auto;
+    padding: 10px 20px;
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+  
+button:hover {
+    background-color: #4cae4c;
+}
+  

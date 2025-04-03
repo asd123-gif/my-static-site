@@ -1,0 +1,13 @@
+[
+    {
+      "id": "content1",
+      "title": "The Future of AI",
+      "image": "static/images/hing.png"
+    },
+    {
+      "id": "content2",
+      "title": "Space Exploration",
+      "image": "static/images/nardun.jpg"
+    }
+  ]
+  
